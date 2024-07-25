@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="headings"><h4>AMC/WARRANTY MANAGEMENT SYSTEM</h4></div>
+    </header>
+    <div class="black-line"></div>
+    <br>
+    <h3> Admin Panel Login</h3>
+    <div class="black-lines"></div><br>
+    <main>
+        
+        <form id="adminLoginForm">
+            <div class="form-group">
+                <label for="admin_employee_id">Employee ID:</label>
+                <input type="text" id="admin_employee_id" name="employee_id" required><br><br>
+            </div>
+            <div class="form-group">
+                <label for="admin_password">Password:</label>
+                <input type="password" id="admin_password" name="password" required><br><br>
+            </div><br><br>
+            <input class="btn btn-primary" type="submit" value="Login">
+        </form>
+    </main>
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form data
+            var employeeId = document.getElementById('admin_employee_id').value;
+            var password = document.getElementById('admin_password').value;
+
+            // Send data to the backend server for authentication
+            fetch('/adminLogin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ employee_id: employeeId, password: password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Admin login response:', data);
+                if (data.success) {
+                    
+                    localStorage.setItem('loggedIn', 'true'); // Mark as logged in
+                    localStorage.setItem('userRole', 'admin'); // Set role to admin
+                    window.location.href = 'order_admin.html'; // Redirect to admin order page
+                } else {
+                    alert('Invalid credentials. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while logging in. Please try again later.');
+            });
+        });
+    </script>
+</body>
+</html>
+

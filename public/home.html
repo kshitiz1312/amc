@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMC Management System - Home</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <div class="heading"><h3>AMC/WARRANTY MANAGEMENT SYSTEM</h3></div>
+        <div class="left-side flex justify-space-between align-item-center">
+            <div class="menu" onclick="showDialogBox()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </div>
+        </div>
+    </header>
+    <section class="dialog-box" id="dialog">
+        
+        <div class="dialog-menu">
+            <div class="heading"><h1>Home <a onclick="closeDialogBox()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-left-close"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m16 15-3-3 3-3"/></svg></a></h1></div>
+           
+           
+            <button type="button" onclick="redirectToOptionPage('order_user.html')" class="btn btn-primary">Total Order</button>
+            <button type="button" onclick="redirectToOptionPage('warranty_active.html')" class="btn btn-primary">Warranty Active</button>
+            <button type="button" onclick="redirectToOptionPage('warranty_expired.html')" class="btn btn-primary">Warranty Expired</button>
+            <button type="button" onclick="redirectToOptionPage('amc_active.html')" class="btn btn-primary">AMC Active</button>
+            <button type="button" onclick="redirectToOptionPage('amc_expired.html')" class="btn btn-primary">AMC Expired</button>
+            <button type="button" onclick="redirectToOptionPage('admin_login.html')" class="btn btn-danger">Login as Admin</button>
+            <br><br><br><br><br>
+            
+
+           
+        </div>
+    </section>
+   
+    <div class="black-line"></div>
+    <br>
+    
+    <main>
+         
+          
+        <div class="chart-container">
+            <canvas id="warrantyChart"></canvas>
+            <canvas id="amcChart"></canvas>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+    
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.dataTables.min.js"></script>
+    <script>
+        function redirectToOrderPage() {
+            window.location.href = 'order_user.html';
+        }
+
+        function loginAsAdmin() {
+            window.location.href = 'admin_login.html';
+        }
+
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("dropdown-content");
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        }
+
+        function redirectToOptionPage(page) {
+            window.location.href = page;
+        }
+
+        function showDialogBox(){
+           const dialog = document.querySelector("#dialog");
+           dialog.classList.toggle("active");
+        }
+
+        function closeDialogBox() {
+            const dialog = document.querySelector("#dialog");
+            dialog.classList.remove("active");
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const dialog = document.querySelector("#dialog");
+                if (dialog.classList.contains("active")) {
+                    dialog.classList.remove("active");
+                }
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
