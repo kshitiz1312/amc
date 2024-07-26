@@ -4,6 +4,15 @@ CREATE DATABASE amc_management;
 -- Use the newly created database
 USE amc_management;
 
+CREATE TABLE users (
+    employee_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    email_id VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('user', 'admin') NOT NULL
+);
+
 -- Create the orders table
 CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
