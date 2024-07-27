@@ -1,0 +1,25 @@
+mkdir amc_management_system
+cd amc_management_system
+npm init -y
+npm install express mysql2 body-parser cors
+node server.js
+
+C:\
+└── Users
+    └── user
+        ├── server.js
+        └── amc_management_system
+            ├── node_modules
+            ├── package.json
+            ├── package-lock.json
+            └── other_files_and_folders
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
+FLUSH PRIVILEGES;
+node -v
+npm -v
+SELECT orders.order_id, orders.product_name, orders.purchase_date, orders.warranty_start_date, orders.warranty_end_date, 
+               amc_details.amc_number,amc_details.amc_start_date, amc_details.amc_end_date 
+        FROM orders 
+        LEFT JOIN amc_details ON orders.order_id = amc_details.order_id;
+
