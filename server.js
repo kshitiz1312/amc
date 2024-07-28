@@ -62,6 +62,7 @@ app.post('/register', (req, res) => {
             return;
         }
         res.status(200).send('User registered successfully');
+        res.redirect('/login');
     });
 });
 

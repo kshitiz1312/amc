@@ -24,7 +24,7 @@ if (registrationForm) {
         .then(data => {
             alert('Registration successful!');
             localStorage.setItem('userRole', role); // Save the role in localStorage
-            window.location.href = 'home.html'; // Redirect to home page
+            window.location.href = 'login.html'; // Redirect to home page
         })
         .catch(error => {
             console.error('Error:', error);

@@ -163,6 +163,24 @@ button[type="button"], button {
     cursor: pointer;   
 }
 
+button[type="btn"], button {
+    padding: 1px 2px;
+    font-size: 1.5em;
+    width: 80px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+     
+}
+
+.container-align{
+    display: flex;
+    justify-content: right;
+
+}
+
 .left-button{
     display: flex;
     justify-content: center;
@@ -178,18 +196,25 @@ input[type="submit"]:hover, button:hover {
 }
 
 table {
-    width: 100%;
+    width: 105%;
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 20px;
+   
+    background-color: 	white;
 }
 
 table, th, td {
-    border: 1px solid #ccc;
+    border: 1px solid black;
 }
 
 th, td {
+    width: auto;
     padding: 10px;
-    text-align: left;
+    text-align: center;
+    font-size: 1.4em;
+    color: black;
 }
 
 /* Charts */
@@ -198,7 +223,7 @@ th, td {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: auto;
     
 }
 
@@ -275,4 +300,40 @@ h1{
 .escimage{
     width: 5%;
     height: 30%;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.right-button {
+    background-color: #031b91;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+.right-button:hover {
+    background-color: white;
+    color: #000;
+}
+
+.heading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+.heading-container h3{
+    flex: 1;
+    text-align: center;
 }

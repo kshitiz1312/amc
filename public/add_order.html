@@ -23,7 +23,7 @@
 
     
     <main>
-        <br><br>
+        
         <form id="addOrderForm">
                 <div class="form-group">
                     <label for="order_id">Order id:</label>
@@ -69,8 +69,12 @@
             </form>
         </main>
     </div>
+    <button type="btn" onclick="redirectToOptionPage('order_admin.html')"  class="btn btn-light">Back</button>
     
     <script>
+        function redirectToOptionPage(page) {
+            window.location.href = page;
+        }
         document.addEventListener('DOMContentLoaded', function() {
             const addOrderForm = document.getElementById('addOrderForm');
             if (addOrderForm) {
